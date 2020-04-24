@@ -50,7 +50,59 @@ Route::get('/model', function(){
        // 'name' => 'Atualizando com Mass Update'
     //]);// true or false
     
-    //dd($user);
+    // como eu faria para pegar a  loja de um usuário
+    //$user = \App\User::find(4);
+    //dd($user->store()->count());//O objeto único (Store) se for collection de dados(objetos)
+
+    //pegar os produtos de uma loja?
+    //$loja = \App\Store::find(1);
+    //return $loja->products; $loja->products()->where('id',9)->get();
+
+
+    //Pegar as lojas de uma categoria de uma loja?
+    //$categoria = \App\Category::find(1);
+    //$categoria->products;
+
+    //Criar uma loja para um usuário
+ /*    $user = \App\User::find(10);
+    $store = $user->store()->create([
+
+        'name' => 'Loja Teste',
+        'description' => 'Loja Teste de produtos de informática',
+        'mobile_phone' => 'xx-xxxxx-xxx',
+        'phone' => 'xx-xxxxx-xxx',
+        'slug' => 'loja-teste'
+    ]); */
+
+    //Criar um produto  pra uma loja
+  /*   $store = \App\Store::find(41);
+    $product = $store->products()->create([
+
+        'name' => 'Notebook Dell',
+        'description' => 'CORE I5 10GB',
+        'body' => 'Qualquer coisa...',
+        'price' => 2999.90,
+        'slug' =>'notebook-dell',
+    ]); 
+ */
+
+    //Criar categoria
+    /* \App\Category::create([
+        'name' => 'Games',
+        'description' => null,
+        'slug' => 'games'
+    ]);
+
+    \App\Category::create([
+        'name' => 'Notebooks',
+        'description' => null,
+        'slug' => 'notebooks'
+    ]);
+
+   return \App\Category::all(); */
+
+   /* $product =  \App\Product::find(60);
+   dd($product->categories()->sync([2])); */
 
    return \App\User::all();
 });
