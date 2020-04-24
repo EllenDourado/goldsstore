@@ -1,12 +1,13 @@
+<h1>Criar Loja</h1>
 <form action="/admin/stores/store" method="post">
-    <h1>Criar Loja</h1>
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div>
         <label for="">Nome Loja</label>
-        <input type="text" name="">
+        <input type="text" name="name">
     </div>
     <div>
         <label for="">Descrição</label>
-        <input type="text" name="name">
+        <input type="text" name="description">
     </div>
     <div>
         <label for="">Telefone</label>
