@@ -1,35 +1,44 @@
-<h1>Criar Loja</h1>
-<form action="/admin/stores/store" method="post">
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
-    <div>
-        <label for="">Nome Loja</label>
-        <input type="text" name="name">
-    </div>
-    <div>
-        <label for="">Descrição</label>
-        <input type="text" name="description">
-    </div>
-    <div>
-        <label for="">Telefone</label>
-        <input type="text" name="phone">
-    </div>
-    <div>
-        <label for="">Celular/Whatsapp</label>
-        <input type="text" name="mobile_phone">
-    </div>
-    <div>
-        <label for="">Slug</label>
-        <input type="text" name="slug">
-    </div>
-    <div>
-        <label for="">Usuário</label>
-        <select name="user" id="">
-            @foreach($users as $user)
+@extends('layouts.app')
+
+@section('content')
+    <h1>Criar Loja</h1>
+    <form action="/admin/stores/store" method="post">
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <div class="form-group">
+            <label>Nome Loja</label>
+            <input type="text" name="name" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Descrição</label>
+            <input type="text" name="description" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Telefone</label>
+            <input type="text" name="phone" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">Celular/Whatsapp</label>
+            <input type="text" name="mobile_phone" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Slug</label>
+            <input type="text" name="slug" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Usuário</label>
+            <select name="user" id="" class="form-control">
+                @foreach($users as $user)
                 <option value="{{$user->id}}">{{$user->name}}</option>
-            @endforeach
-        </select>
-    </div>
-    <div>
-        <button type="submit">Criar Loja</button>
-    </div>
-</form>
+                @endforeach
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Criar Loja</button>
+        </div>
+    </form>
+@endsection
