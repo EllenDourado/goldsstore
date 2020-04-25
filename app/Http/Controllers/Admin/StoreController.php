@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 class StoreController extends Controller
 {
@@ -28,6 +29,22 @@ class StoreController extends Controller
 
         $user = \App\User::find($data['user']);
         $store = $user->store()->create($data);
+
+        return $store;
+    }
+
+    public function edit($store){
+
+        $store = \App\Store::find($store);
+
+        return view('admin.stores.edit',compact('store'));
+    }
+
+    public function update($store, Request $request){
+
+        $data = $request->all();
+        $store = \App\Store::find($store);
+        $store->update($data);
 
         return $store;
     }
