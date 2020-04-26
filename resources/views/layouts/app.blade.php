@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="conteiner">
+        @include('flash::message')
         @yield('content')
     </div>
 </body>

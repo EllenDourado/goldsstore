@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 class StoreController extends Controller
 {
@@ -30,7 +31,8 @@ class StoreController extends Controller
         $user = \App\User::find($data['user']);
         $store = $user->store()->create($data);
 
-        return $store;
+        flash('Loja criada com sucesso!')->success();
+        return redirect()->route('admin.stores.index');
     }
 
     public function edit($store){
@@ -46,7 +48,8 @@ class StoreController extends Controller
         $store = \App\Store::find($store);
         $store->update($data);
 
-        return $store;
+        flash('Loja atualizada com sucesso!')->success();
+        return redirect()->route('admin.stores.index');
     }
 
     public function destroy($store){
@@ -54,6 +57,7 @@ class StoreController extends Controller
         $store = \App\Store::find($store);
         $store->delete();
 
-        return redirect('/admin/stores');
+        flash('Loja removida com sucesso!')->success();
+        return redirect()->route('admin.stores.index');
     }
 }
