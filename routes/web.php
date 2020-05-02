@@ -126,3 +126,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
