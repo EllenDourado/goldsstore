@@ -18,7 +18,7 @@ Route::get('/', function() {
     $helloWord = 'Hello Word';
 
     return view('welcome',compact('helloWord'));
-});
+})->name('home');
 
 Route::get('/model', function(){
 
@@ -109,7 +109,7 @@ Route::get('/model', function(){
    return \App\User::all();
 });
 
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth']], function(){//controle de autenticação
 
     Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
 
